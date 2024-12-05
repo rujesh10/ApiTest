@@ -22,7 +22,7 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Welcome to the lottery app with a database!"})
+    return jsonify({"message": "Welcome to Rujesh's Server!"})
 
 # Add an entry to the database
 @app.route("/submit", methods=["POST"])
