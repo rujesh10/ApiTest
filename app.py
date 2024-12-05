@@ -41,6 +41,20 @@ def submit_data():
 
     return jsonify({"status": "success", "entry_id": entry.id})
 
+
+
+@app.route("/delete/<int:id>", methods=["DELETE"])
+def delete_data(id):
+    entry = LotteryEntry.query.get(id)
+
+    if not entry:
+        return jsonify({"error": "Entry not found"}), 404
+    db.session.delete(entry)
+    db.session.commit()
+
+    return jsonify({"status" : "success", "message" : f"Entry with {id} deleted!"})
+
+
 # Get all entries
 @app.route("/entries", methods=["GET"])
 def get_entries():
