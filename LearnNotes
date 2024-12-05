@@ -1,0 +1,2 @@
+install flask (pip install flask)
+install (pip install flask-sqlalchemy)
